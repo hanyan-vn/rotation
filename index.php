@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vòng quay</title>
+    <title>Rotation</title>
 
     <link href="/css/common.css" rel="stylesheet">
     <link href="/css/wheel.css" rel="stylesheet">
@@ -82,7 +82,7 @@
             }
 
             $.ajax({
-                url: "/ajax/vongquay.php",
+                url: "/ajax/rotation.php",
                 method: "GET",
                 data: {
 
