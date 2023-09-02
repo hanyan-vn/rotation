@@ -18,7 +18,7 @@ $label = [
 ];
 
 
-$tile = [
+$ratio = [
     70,
     30,
     0,
@@ -36,13 +36,14 @@ $tile = [
     0
 ];
 
-$out = getRandomWeightedElement($tile);
+$out = getRandomWeightedElement($ratio);
 
 $data = [
-    'location' => $out + 1,
+    'location' => $out,
     'label' => $label[$out]
 ];
 
+header('Content-Type: application/json; charset=utf-8');
 echo json_encode($data);
 
 function getRandomWeightedElement(array $weightedValues)

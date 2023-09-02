@@ -44,19 +44,9 @@
         </div>
 
         <div class="fortune__form">
-            <img class="fortune__form-logo" src="/images/accfarm_logo.svg">
-            <div class="fortune__form-title text-center text-blue bold">SPIN THE WHEEL TO WIN!</div>
-            <div class="fortune__form-subtitle text-center text-blue bold invisible"></div>
-            <div class="fortune__form-text fortune__text invisible">
-                <div class="fortune__text-item">
-                    The administrator is already aware of your prize and will contact you shortly to let you know how to receive it.
-                    Your details were successfully stored:
-                </div>
-                <div class="fortune__text-card">
-                    <div class="fortune__text-row"><span class="wheel-title">prize:</span>&ensp;<span class="text-blue bold fortune__prize-name"></span></div>
-                    <div class="fortune__prize-desc"></div>
-                </div>
-            </div>
+            <img class="fortune__form-logo" style="border-radius: 100px; width: 200px; height: 200px; border: 5px #EEEEEE solid;" src="https://avatars.githubusercontent.com/u/86786706?v=4">
+            <div class="fortune__form-title text-center text-blue bold"style="font-size: 25px;">ID Thiên Ân</div>
+            <div class="fortune__form-subtitle text-center text-dark bold" style="font-size: 18px; margin-top: -20px;">This is a module packaged for the <a style="color: #FF9999" target="_blank" href="https://shopclone6.cmsnt.site/client/spin">CMSNT</a> source code</div>
             <button type="button" class="fortune__form-btn btn btn-green btn-large" id="rotation_btn">SPIN!</button>
             <p class="form-error"></p>
         </div>
@@ -66,7 +56,9 @@
 
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script>
-    $("#rotation_btn").click(rotation());
+    $("#rotation_btn").click(()=>{
+        rotation();
+    });
 
     var rotationStatus = true;
     var rotationCount = $(".wheelText").length;
@@ -82,33 +74,35 @@
             url: "/ajax/rotation.php",
             method: "GET",
             data: {
-
+                //
             },
+            dataType: "json",
             success: function(response) {
-                response = JSON.parse(response);
                 var audio = new Audio('/audio/roulette.mp3');
 
-                var location_item = response.location;
+                var degree = 0;
                 var countLoop = 0;
+                var location_item = response.location+1;
 
-                var r = 0;
                 var loop = setInterval(() => {
                     audio.play();
 
-                    document.getElementById("rotation").style.transform = "rotate(" + (360 - r) + "deg)";
-                    if (r >= countLoop * location_item - countLoop / 2 && countLoop == 2) {
+                    document.getElementById("rotation").style.transform = "rotate(" + (360 - degree) + "deg)";
+                    if (degree >= (items * location_item - items/2) && countLoop == 2) {
                         clearInterval(loop);
                         rotationStatus = true;
                         audio.pause();
 
-                        alert(response.label);
+                        setTimeout(()=>{
+                            alert(response.label);
+                        }, 100);
                     } else {
-                        if(x >= 360){
+                        if(degree >= 360){
+                            degree = 0;
                             countLoop = countLoop + 1;
-                            r = 0;
                         }
                     }
-                    r = r + 1;
+                    degree = degree + 1;
                 }, 1);
             }
         });
