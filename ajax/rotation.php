@@ -39,7 +39,7 @@ $ratio = [
 $out = getRandomWeightedElement($ratio);
 
 $data = [
-    'location' => $out,
+    'location' => $out + 1,
     'label' => $label[$out]
 ];
 
