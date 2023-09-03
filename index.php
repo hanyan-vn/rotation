@@ -46,7 +46,7 @@
         <div class="fortune__form">
             <img class="fortune__form-logo" style="border-radius: 100px; width: 200px; height: 200px; border: 5px #EEEEEE solid;" src="https://avatars.githubusercontent.com/u/86786706?v=4">
             <div class="fortune__form-title text-center text-blue bold"style="font-size: 25px;">ID Thiên Ân</div>
-            <div class="fortune__form-subtitle text-center text-dark bold" style="font-size: 18px; margin-top: -20px;">This is a module packaged for the <a style="color: #FF9999" target="_blank" href="https://shopclone6.cmsnt.site/client/spin">CMSNT</a> source code</div>
+            <div class="fortune__form-subtitle text-center text-dark bold" style="font-size: 18px; margin-top: -20px;">This is a packaged rotation module for <a style="color: #FF9999" href="#">PHP</a> source code</div>
             <button type="button" class="fortune__form-btn btn btn-green btn-large" id="rotation_btn">SPIN!</button>
             <p class="form-error"></p>
         </div>
