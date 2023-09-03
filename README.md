@@ -1,4 +1,3 @@
-markdown
 # Rotation Module
 
 This is a simple rotation module implemented using HTML, CSS, JS, and PHP. It allows you to rotate elements on a web page.
