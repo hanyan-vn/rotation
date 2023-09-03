@@ -82,7 +82,7 @@
 
                 var degree = 0;
                 var countLoop = 0;
-                var location_item = response.location+1;
+                var location_item = response.location;
 
                 var loop = setInterval(() => {
                     audio.play();
